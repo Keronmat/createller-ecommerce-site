@@ -1,0 +1,75 @@
+.SideDrawerItems {
+  background-color: rgba(0, 0, 0, 1) !important;
+  border-bottom: 1px solid #dbdcd2;
+  border-top: 1px solid #dbdcd2;
+  transition: all 0.3s ease;
+  transform-origin: 50% 50%;
+  border-right: none;
+  border-radius: 0;
+}
+
+.SideDrawerItems:first-of-type {
+  border-top: 0;
+}
+.SideDrawerItems:last-of-type {
+  border-bottom: 0;
+}
+.cardHeader {
+  padding: 20px;
+}
+.cardHeader span:first-child {
+  margin: 0 auto;
+}
+button {
+  position: relative;
+  border: none;
+  outline: none;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  line-height: 18px;
+  letter-spacing: 1px;
+  font-weight: 400 !important;
+  font-family: UnitedSansSemiCond-Light;
+  padding: 5px;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+  background-color: transparent;
+}
+button:focus {
+  outline: none;
+}
+
+.IconPlus {
+  cursor: pointer;
+}
+.IconPlus::before,
+.IconPlus::after {
+  position: absolute;
+  background: #808080;
+  content: "";
+  right: 10px;
+  top: 50%;
+  height: 2px;
+  width: 15px;
+  transition: all 0.5s ease-out;
+  opacity: 1;
+}
+.IconPlus:after {
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+.collapsed {
+  background: #fff !important;
+}
+.IconPlus.collapsed::after {
+  transition: all 0.5s ease-out;
+  background-color: #fff !important;
+  transform: rotate(180deg);
+}
+.IconPlus.collapsed::before {
+  opacity: 0;
+  background-color: #fff;
+  transform: rotate(180deg);
+}

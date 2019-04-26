@@ -1,0 +1,29 @@
+.Sidedrawer {
+  position: fixed;
+  width: 200px;
+  left: 0;
+  top: 61px;
+  z-index: 200;
+  background-color: transparent;
+  color: #fff;
+  box-shadow: rgba(100, 100, 100, 0.2) 6px 2px 10px;
+  transition: all 0.3s ease-out;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  border-right: none;
+  border-radius: none;
+  font-size: 21px;
+}
+
+.Open {
+  transform: translateX(0);
+}
+.Close {
+  transform: translateX(-100%);
+}
+@media (min-width: 768px) {
+  .Sidedrawer {
+    display: none;
+  }
+}

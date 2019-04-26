@@ -1,0 +1,49 @@
+.Cart {
+  background-color: transparent;
+  border-radius: 3px;
+  color: #fff !important;
+  float: right;
+  font-size: 15px;
+  margin: 35px auto;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  text-decoration: none;
+}
+.Cart span {
+  margin-right: 15px;
+}
+.Cart a {
+  text-decoration: none !important;
+}
+.Cart > a:hover,
+.Cart > span:hover {
+  background-color: none;
+  text-decoration: none !important;
+}
+.Cart img {
+  height: 21px;
+}
+@media (min-width: 768px) {
+  .Cart {
+    color: #fff !important;
+    margin: 15px 15px 0 0;
+    float: right;
+    font-size: 15px;
+    justify-content: center;
+    cursor: pointer;
+    display: flex;
+  }
+
+  .Cart a {
+    text-decoration: none !important;
+  }
+  .Cart a:hover,
+  .Cart span:hover {
+    background-color: none;
+    text-decoration: none !important;
+  }
+  .Cart img {
+    height: 21px;
+  }
+}

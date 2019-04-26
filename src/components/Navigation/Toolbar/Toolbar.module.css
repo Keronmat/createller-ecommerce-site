@@ -1,0 +1,99 @@
+header {
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  position: fixed;
+  text-align: center;
+  height: auto;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0 0 85% 85% / 30%;
+  z-index: 90;
+}
+
+.Toolbar {
+  width: 100%;
+  height: 10vh;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 1px #000;
+  border-bottom: 1px solid transparent;
+  background-image: linear-gradient(135deg, #63d2ff 20%, #1776b1 0%);
+  webkit-box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.08),
+    0 4px 5px 0 rgba(0, 0, 0, 0.08), 0 1px 10px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.08),
+    0 4px 5px 0 rgba(0, 0, 0, 0.08), 0 1px 10px 0 rgba(0, 0, 0, 0.1);
+}
+.Toolbar h5 {
+  font-family: "Open Sans", sans-serif;
+  margin-bottom: 5px;
+  font-size: 1.5rem;
+}
+.LogoDiv {
+  width: 33.33%;
+}
+.CartDiv {
+  float: right;
+  margin-top: -15px;
+  padding: 0;
+  width: 33.33%;
+}
+.LogoDiv {
+  text-align: center;
+  margin: 5px 0 15px 0;
+  padding: 0;
+  float: left;
+}
+.CartDiv {
+  padding: 0;
+  margin-top: -10px;
+  max-width: auto;
+  float: right;
+}
+.Nav {
+  text-align: center;
+  margin: 0 auto;
+  font-family: Montserrat;
+  font-weight: 500;
+}
+.HamburgerMenu {
+  display: block;
+  float: left;
+  width: 33.33%;
+  margin: 5px 0 10px;
+}
+
+@media (min-width: 768px) {
+  .Toolbar {
+    height: 40vh;
+    background-image: linear-gradient(135deg, #63d2ff 40%, #1776b1 0%);
+  }
+
+  .LogoDiv {
+    text-align: center;
+    margin: 5px 0 15px 0;
+    padding: 0;
+    float: left;
+  }
+  .CartDiv {
+    padding: 0;
+    margin-top: -10px;
+    max-width: auto;
+    float: right;
+  }
+  .Nav {
+    text-align: center;
+    margin: 0 auto;
+    font-family: Montserrat;
+    font-weight: 500;
+  }
+}
+
+@media (min-width: 320px) {
+}

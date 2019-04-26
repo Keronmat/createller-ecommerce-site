@@ -1,0 +1,68 @@
+.NavigationItem {
+  display: none;
+  text-transform: capitalize;
+  position: relative;
+  font-family: mont;
+}
+
+@media (min-width: 768px) {
+  .NavigationItem {
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    display: block;
+    width: 130px;
+    height: 51px;
+    line-height: 18px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #fff !important;
+    font-size: 2rem;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .NavigationItem a,
+  .NavigationItem span {
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    display: block;
+    padding: 16px;
+  }
+  .NavigationItem a:hover {
+    background-image: linear-gradient(135deg, #63d2ff 10%, #1776b1 100%);
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0 3px 20px 0 #0000003b;
+  }
+  .NavigationItem span:hover {
+    background-image: linear-gradient(135deg, #1776b1 10%, #63d2ff 100%);
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0 3px 20px 0 #0000003b;
+  }
+  .NavigationItem a:active.NavigationItem a.active {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  .NavigationItem span:active.NavigationItem span.active {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+@media (min-width: 481px) {
+  .NavigationItem {
+    font-size: 17px;
+  }
+}
+@media (min-width: 320px) {
+  .NavigationItem {
+    font-size: 16px !important;
+  }
+}
