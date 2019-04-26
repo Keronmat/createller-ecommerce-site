@@ -3,10 +3,9 @@
   position: relative;
   width: 30px;
   height: 20px;
-  margin: 15px;
   margin-top: 10px;
-  margin-left: 0px;
-  padding: 10px;
+  margin-left: 25px;
+  padding: 0;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);

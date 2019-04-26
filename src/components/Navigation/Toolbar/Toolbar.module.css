@@ -6,7 +6,7 @@ header {
   width: 100%;
   position: fixed;
   text-align: center;
-  height: auto;
+  height: 12vh;
   background-size: cover;
   background-attachment: fixed;
   position: relative;
@@ -17,7 +17,6 @@ header {
 
 .Toolbar {
   width: 100%;
-  height: 10vh;
   margin: 0;
   padding: 0;
   color: #fff;
@@ -30,45 +29,48 @@ header {
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.08),
     0 4px 5px 0 rgba(0, 0, 0, 0.08), 0 1px 10px 0 rgba(0, 0, 0, 0.1);
 }
-.Toolbar h5 {
+
+.Toolbar h3 {
   font-family: "Open Sans", sans-serif;
   margin-bottom: 5px;
   font-size: 1.5rem;
 }
-.LogoDiv {
-  width: 33.33%;
-}
+
 .CartDiv {
   float: right;
-  margin-top: -15px;
+  margin-top: 0;
+  width: 20%;
   padding: 0;
-  width: 33.33%;
 }
 .LogoDiv {
   text-align: center;
-  margin: 5px 0 15px 0;
+  margin: 0;
   padding: 0;
   float: left;
+  width: 55%;
 }
-.CartDiv {
-  padding: 0;
-  margin-top: -10px;
-  max-width: auto;
-  float: right;
+.LogoDiv > h3 {
+  display: none;
 }
+
 .Nav {
-  text-align: center;
-  margin: 0 auto;
-  font-family: Montserrat;
-  font-weight: 500;
+  display: none;
 }
 .HamburgerMenu {
   display: block;
   float: left;
-  width: 33.33%;
-  margin: 5px 0 10px;
+  width: 20%;
+  margin: 0;
+  padding: 0;
 }
-
+@media (min-width: 310px) {
+}
+@media (min-width: 576px) {
+  .CartDiv {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
 @media (min-width: 768px) {
   .Toolbar {
     height: 40vh;
@@ -81,6 +83,9 @@ header {
     padding: 0;
     float: left;
   }
+  .LogoDiv > h3 {
+    display: block;
+  }
   .CartDiv {
     padding: 0;
     margin-top: -10px;
@@ -88,6 +93,7 @@ header {
     float: right;
   }
   .Nav {
+    display: block;
     text-align: center;
     margin: 0 auto;
     font-family: Montserrat;

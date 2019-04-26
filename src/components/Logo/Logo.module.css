@@ -7,14 +7,18 @@
 }
 .Logo .mobileLogo {
   display: block;
-  height: 35px;
+  height: 25px;
   position: relative;
 }
 
 .Logo .largeLogo {
   display: none;
 }
-
+@media (min-width: 310px) {
+  .Logo .mobileLogo {
+    height: 35px;
+  }
+}
 @media (min-width: 768px) {
   .Logo .mobileLogo {
     display: none;
