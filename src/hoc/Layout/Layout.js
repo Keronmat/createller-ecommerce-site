@@ -3,6 +3,7 @@ import classes from "./layoutStyles.module.css";
 import Toolbar from "../../components/Navigation/Toolbar/Toolbar";
 import SidedrawerLeft from "../../components/Navigation/Sidedrawer/SidedrawerLeft";
 import Modal from "../../UI/Modal/Modal";
+import SignInForm from "../../components/signInForm/signInForm";
 
 export default class Layout extends Component {
   constructor(props) {
@@ -32,13 +33,14 @@ export default class Layout extends Component {
         <Modal
           show={this.state.clickSignIn}
           modalClosed={this.signInCancelHandler}
-        />
+        >
+          <SignInForm modalClosed={this.signInCancelHandler} />
+        </Modal>
         <Toolbar
           leftDrawerToggler={this.leftDrawerToggler}
           rightDrawerToggler={this.rightDrawerToggler}
           openSideDrawer={this.state.showSideDrawerLeft}
           openSignInModal={this.signInHandler}
-          closeSigInModal={this.signInCancelHandler}
         />
         <SidedrawerLeft
           open={this.state.showSideDrawerLeft}

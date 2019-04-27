@@ -1,0 +1,46 @@
+.signInForm {
+  margin: 5px 0;
+  padding: 5px;
+}
+
+.signInForm .close {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  text-align: right;
+}
+.formInput {
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+  padding: 10px;
+  text-align: center;
+}
+.formInput div {
+  margin: 5px 0 5px 0;
+}
+.formInput input {
+  outline: none;
+  border: none;
+  width: 35vmin;
+  border-radius: 2px;
+  padding: 2px 10px;
+  text-transform: lowercase;
+}
+.formButtonGroup {
+  font-size: 1rem;
+  margin: 0 auto;
+}
+.formButtonGroup input {
+  width: 15px;
+  height: 15px;
+  margin: 5px;
+}
+.formButton {
+  width: 100%;
+}
+.formButton button {
+  width: 18vmin;
+  font-size: 1rem;
+}
