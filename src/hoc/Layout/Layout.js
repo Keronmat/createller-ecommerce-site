@@ -24,6 +24,7 @@ export default class Layout extends Component {
   };
   signInHandler = () => {
     this.setState({ clickSignIn: true });
+    console.log(this.state.clickSignIn);
   };
   render() {
     return (
@@ -37,8 +38,12 @@ export default class Layout extends Component {
           rightDrawerToggler={this.rightDrawerToggler}
           openSideDrawer={this.state.showSideDrawerLeft}
           openSignInModal={this.signInHandler}
+          closeSigInModal={this.signInCancelHandler}
         />
-        <SidedrawerLeft open={this.state.showSideDrawerLeft} />
+        <SidedrawerLeft
+          open={this.state.showSideDrawerLeft}
+          openSignInModal={this.signInHandler}
+        />
 
         <main className={classes.Content}>{this.props.children}</main>
       </React.Fragment>

@@ -20,6 +20,41 @@
   margin: 0;
   padding: 0;
 }
+.SideDrawerItem {
+  background-color: #1776b1 !important;
+  border-bottom: 1px solid #dbdcd2;
+  border-top: 1px solid #dbdcd2;
+  border-right: none;
+  border-radius: 0;
+}
+
+.SideDrawerItem:first-of-type {
+  border-top: 0;
+}
+.SideDrawerItem:last-of-type {
+  border-bottom: 0;
+}
+
+.SideDrawerItem a {
+  position: relative;
+  border: none;
+  outline: none;
+  color: #fff;
+  text-transform: capitalize;
+  cursor: pointer;
+  line-height: 18px;
+  letter-spacing: 1px;
+  font-weight: 400 !important;
+  font-family: UnitedSansSemiCond-Light;
+  padding: 15px;
+  margin: 0;
+  width: 100%;
+  background-color: transparent;
+  text-decoration: none;
+}
+.SideDrawerItem a:focus {
+  outline: none;
+}
 
 @media (min-width: 768px) {
   .SidedrawerLeft {

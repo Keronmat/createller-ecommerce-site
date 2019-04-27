@@ -4,9 +4,6 @@ import NavigationItem, {
   NavigationItemDropdown
 } from "./NavigationItem/NavigationItem";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSortDown } from "@fortawesome/free-solid-svg-icons";
-
 export default class NavigationItems extends Component {
   render() {
     return (

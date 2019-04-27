@@ -1,14 +1,14 @@
 .Modal {
   position: fixed;
   z-index: 500;
-  background-color: #4e4a49;
+  background-image: linear-gradient(135deg, #63d2ff 40%, #1776b1 0%);
   color: white;
   width: 70%;
   border: none;
-  box-shadow: 0px 1px 3px 1px #ed1c24;
+  box-shadow: 0px 1px 3px 1px #1776b1;
   padding: 16px;
   left: 15vmin;
-  top: 10vmin;
+  top: 15vmin;
   box-sizing: border-box;
   transition: all 0.3s ease-out;
 }
