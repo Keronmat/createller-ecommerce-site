@@ -14,7 +14,10 @@ export default function Toolbar(props) {
             " "
           )}
         >
-          <HamburgerMenu />
+          <HamburgerMenu
+            clicked={props.leftDrawerToggler}
+            openSideDrawer={props.openSideDrawer}
+          />
         </div>
         <div
           className={[classes.LogoDiv, " col-md-6 col-sm-4 col-xs-4"].join(" ")}
@@ -32,7 +35,7 @@ export default function Toolbar(props) {
       </div>
       <div className={[classes.Nav, "row"].join(" ")}>
         <div className="col-12">
-          <NavigationItems />
+          <NavigationItems openSignInModal={props.openSignInModal} />
         </div>
       </div>
     </header>

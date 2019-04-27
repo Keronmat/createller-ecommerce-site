@@ -3,9 +3,9 @@ import classes from "./SideDrawerItems.module.css";
 
 const SideDrawerItems = props => {
   return (
-    <div className={[classes.SideDrawerItems, "card"].join(" ")}>
-      {props.children}
-    </div>
+    <li className={[classes.SideDrawerItems, "card"].join(" ")}>
+      <a href={props.links}> {props.children}</a>
+    </li>
   );
 };
 export default SideDrawerItems;

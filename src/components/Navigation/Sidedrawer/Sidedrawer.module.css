@@ -1,8 +1,9 @@
-.Sidedrawer {
+.SidedrawerLeft {
   position: fixed;
   width: 200px;
+  height: auto;
   left: 0;
-  top: 61px;
+  top: 10vh;
   z-index: 200;
   background-color: transparent;
   color: #fff;
@@ -15,15 +16,13 @@
   border-radius: none;
   font-size: 21px;
 }
+.SidedrawerLeft ul {
+  margin: 0;
+  padding: 0;
+}
 
-.Open {
-  transform: translateX(0);
-}
-.Close {
-  transform: translateX(-100%);
-}
 @media (min-width: 768px) {
-  .Sidedrawer {
+  .SidedrawerLeft {
     display: none;
   }
 }

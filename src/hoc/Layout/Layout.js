@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import classes from "./layoutStyles.module.css";
 import Toolbar from "../../components/Navigation/Toolbar/Toolbar";
 import SidedrawerLeft from "../../components/Navigation/Sidedrawer/SidedrawerLeft";
-import SidedrawerRight from "../../components/Navigation/Sidedrawer/SidedrawerRight";
+import Modal from "../../UI/Modal/Modal";
 
 export default class Layout extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ export default class Layout extends Component {
 
     this.state = {
       showSideDrawerLeft: false,
-      showSideDrawerRight: false
+      clickSignIn: false
     };
   }
   leftDrawerToggler = () => {
@@ -19,21 +19,27 @@ export default class Layout extends Component {
     }));
     //console.log(this.state);
   };
-  rightDrawerToggler = () => {
-    this.setState(prevState => ({
-      showSideDrawerRight: !prevState.showSideDrawerRight
-    }));
-    // console.log(this.state);
+  signInCancelHandler = () => {
+    this.setState({ clickSignIn: false });
+  };
+  signInHandler = () => {
+    this.setState({ clickSignIn: true });
   };
   render() {
     return (
       <React.Fragment>
+        <Modal
+          show={this.state.clickSignIn}
+          modalClosed={this.signInCancelHandler}
+        />
         <Toolbar
           leftDrawerToggler={this.leftDrawerToggler}
           rightDrawerToggler={this.rightDrawerToggler}
+          openSideDrawer={this.state.showSideDrawerLeft}
+          openSignInModal={this.signInHandler}
         />
-        <SidedrawerLeft open={this.state.leftDrawerToggler} />
-        <SidedrawerRight open={this.state.leftDrawerToggler} />
+        <SidedrawerLeft open={this.state.showSideDrawerLeft} />
+
         <main className={classes.Content}>{this.props.children}</main>
       </React.Fragment>
     );

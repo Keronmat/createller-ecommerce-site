@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./HamburgerMenu.module.css";
 
 function HamburgerMenu(props) {
-  const attachedClasses = props.openSidedrawer
+  const attachedClasses = props.openSideDrawer
     ? [classes.HamburgerMenu, classes.open]
     : [classes.HamburgerMenu];
   console.log(props.openSidedrawer);

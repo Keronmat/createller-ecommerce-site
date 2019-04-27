@@ -8,31 +8,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSortDown } from "@fortawesome/free-solid-svg-icons";
 
 export default class NavigationItems extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      signInDropdownOpen: false
-    };
-  }
-  handleOpen = () => {
-    this.setState({ signInDropdownOpen: true });
-    console.log(this.state);
-  };
-
-  handleClose = () => {
-    this.setState({ signInDropdownOpen: false });
-  };
   render() {
     return (
       <ul className={[classes.NavigationItems, "nav navbar-nav"].join(" ")}>
         <NavigationItem link="/">Directory</NavigationItem>
-        <NavigationItemDropdown
-          handleOpen={this.handleOpen}
-          handleClose={this.handleClose}
-        >
+        <NavigationItemDropdown openSignInModal={this.props.openSignInModal}>
           Sign in
-          <FontAwesomeIcon icon={faSortDown} style={{ marginLeft: "5px" }} />
         </NavigationItemDropdown>
       </ul>
     );

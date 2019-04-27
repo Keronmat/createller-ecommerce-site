@@ -12,8 +12,7 @@ export function NavigationItemDropdown(props) {
   return (
     <li
       className={[classes.NavigationItem, "navbar-item"].join(" ")}
-      onMouseOver={() => props.handleOpen()}
-      onMouseLeave={() => props.handleClose()}
+      onClick={props.openSignInModal}
     >
       <span>{props.children}</span>
     </li>
