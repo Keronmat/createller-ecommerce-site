@@ -1,13 +1,13 @@
 import React from "react";
-import classes from "./signInForm.module.css";
+import classes from "./signUpForm.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
-export default function SignInForm(props) {
+export default function SignUpForm(props) {
   return (
-    <div className={classes.signInForm}>
+    <div className={classes.signUpForm}>
       <div className="row">
-        <h4 className="col-8">Login</h4>
+        <h4 className="col-8">Sign up</h4>
         <button
           onClick={() => props.modalClosed()}
           className={[classes.close, "col-4"].join(" ")}
@@ -19,6 +19,12 @@ export default function SignInForm(props) {
         <form>
           <div className={[classes.formInput, "form-row"].join(" ")}>
             <div>
+              <input type="text" placeholder="first name" />
+            </div>
+            <div>
+              <input type="text" placeholder="last name" />
+            </div>
+            <div>
               <input type="email" placeholder="Enter email" />
             </div>
             <div>
@@ -27,7 +33,7 @@ export default function SignInForm(props) {
             <div className={classes.formButtonGroup}>
               <div>
                 <input type="checkbox" id="rememberMe" />
-                <label htmlFor="rememberMe">Remember me</label>
+                <label for="rememberMe">Remember me</label>
               </div>
               <div className={classes.formButton}>
                 <button
@@ -45,9 +51,9 @@ export default function SignInForm(props) {
           </div>
         </form>
       </div>
-      <div className={classes.signUp}>
+      <div className={classes.signIn}>
         <button onClick={() => props.toggleSignupForm()}>
-          No account yet?
+          Already have an account?
         </button>
       </div>
     </div>

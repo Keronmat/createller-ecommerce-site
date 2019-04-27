@@ -1,9 +1,9 @@
-.signInForm {
+.signUpForm {
   margin: 5px 0;
   padding: 5px;
 }
 
-.signInForm .close {
+.signUpForm .close {
   outline: none;
   border: none;
   background-color: transparent;
@@ -44,10 +44,10 @@
   width: 18vmin;
   font-size: 1rem;
 }
-.signUp {
+.signIn {
   text-align: center;
 }
-.signUp button {
+.signIn button {
   outline: none;
   border: none;
   background-color: transparent;
