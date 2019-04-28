@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import SortBar from "./sortBar/sortBar";
+import classes from "./mainContent.module.css";
 
 export default class MainContent extends Component {
   constructor(props) {
@@ -8,6 +10,11 @@ export default class MainContent extends Component {
   }
 
   render() {
-    return <div>main content with grids</div>;
+    return (
+      <div className={[classes.mainContent, "container-fluid"].join(" ")}>
+        <SortBar />
+        main content with grids
+      </div>
+    );
   }
 }

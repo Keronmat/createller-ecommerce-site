@@ -1,0 +1,30 @@
+.sortBar {
+  background-color: #63d2ff;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+.heading,
+p {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.sortBar form {
+  display: flex;
+  justify-content: center;
+  align-content: space-between;
+  padding: 0;
+  margin: 0;
+}
+.sortBar form span {
+  padding-right: 10vmin;
+  margin: 0;
+}
+.sortBar label {
+  margin: 0;
+  padding: 0;
+}

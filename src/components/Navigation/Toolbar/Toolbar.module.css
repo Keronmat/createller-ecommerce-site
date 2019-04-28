@@ -17,7 +17,7 @@ header {
 
 .Toolbar {
   width: 100%;
-  margin: 0;
+  margin-bottom: 0;
   padding: 0;
   color: #fff;
   text-transform: uppercase;
@@ -38,7 +38,7 @@ header {
 
 .CartDiv {
   float: right;
-  margin-top: 0;
+  margin: 0;
   width: 20%;
   padding: 0;
 }

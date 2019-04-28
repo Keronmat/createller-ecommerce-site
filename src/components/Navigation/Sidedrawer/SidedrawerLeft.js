@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import classes from "./Sidedrawer.module.css";
 
 export default function SidedrawerLeft(props) {
@@ -9,13 +9,13 @@ export default function SidedrawerLeft(props) {
     <div className={classes.SidedrawerLeft} style={sideDrawerStyle}>
       <ul>
         <li className={[classes.SideDrawerItem, "card"].join(" ")}>
-          <a href="#"> Directory</a>
+          <a href="/"> Directory</a>
         </li>
         <li
           onClick={() => props.openSignInModal()}
           className={[classes.SideDrawerItem, "card"].join(" ")}
         >
-          <a href="#"> sign in</a>
+          <a href="/"> sign in</a>
         </li>
       </ul>
     </div>

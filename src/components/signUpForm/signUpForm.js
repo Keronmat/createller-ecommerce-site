@@ -33,7 +33,7 @@ export default function SignUpForm(props) {
             <div className={classes.formButtonGroup}>
               <div>
                 <input type="checkbox" id="rememberMe" />
-                <label for="rememberMe">Remember me</label>
+                <label htmlFor="rememberMe">Remember me</label>
               </div>
               <div className={classes.formButton}>
                 <button
