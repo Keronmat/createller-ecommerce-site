@@ -5,7 +5,7 @@ import classes from "./ItemLister.module.css";
 
 export default function ItemLister(props) {
   return (
-    <div className={classes.Product}>
+    <div id="lister" className={[classes.Product, "product"].join(" ")}>
       <span>
         <p>Price: ${props.price}</p>
       </span>

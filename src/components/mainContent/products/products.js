@@ -6,10 +6,11 @@ import classes from "./Products.module.css";
 export default class Products extends Component {
   render() {
     let items = null;
-
     if (this.props.loading) {
+      //if loading is true show the spinner
       items = <Spinner />;
     } else if (this.props.error) {
+      // there is an error (server not loading) show this message
       items = <p style={{ textAlign: "center" }}>Something went wrong</p>;
     } else {
       items = this.props.products.map(item => {
@@ -39,6 +40,14 @@ export default class Products extends Component {
         );
       });
     }
-    return <section className={classes.ProductsRow}>{items}</section>;
+
+    return (
+      <section
+        id="test"
+        className={[classes.ProductsRow, "productRow"].join(" ")}
+      >
+        {items}
+      </section>
+    );
   }
 }
