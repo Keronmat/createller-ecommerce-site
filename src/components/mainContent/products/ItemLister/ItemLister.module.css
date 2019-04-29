@@ -1,0 +1,62 @@
+.Product {
+  width: 15em;
+  height: auto;
+  border-radius: 3px;
+  padding: 2em;
+  margin: 1em;
+  overflow: hidden;
+  position: relative;
+  flex: auto;
+  border-top: 1px solid rgba(0, 0, 0, 0.4);
+  background: #f7f9f9;
+  font-family: "Gabriela", serif;
+}
+
+.ProductInner div {
+  max-width: 100%;
+  height: auto !important;
+  text-align: center;
+  color: #003268;
+  align-content: space-between;
+}
+.ProductInner div p {
+  margin-right: 1em;
+}
+.ProductInner {
+  display: flex;
+  align-items: center;
+  flex-flow: column wrap;
+  padding: 0.1em;
+}
+.ProductInner p {
+  color: rgba(0, 0, 0, 0.9);
+}
+.ProductInner button {
+  border: 1px solid #1776b1;
+  color: #003268;
+  border-radius: 3px;
+  padding: 1em 3em;
+  margin: 1em 0 0 0;
+  background: none;
+  cursor: pointer;
+  line-height: 21px;
+  transition: background ease-in 0.25s;
+}
+.ProductInner button:hover {
+  background: #003268;
+  color: #fff;
+}
+.ProductInner button span {
+  padding-right: 0.6em;
+}
+.date {
+  text-transform: capitalize;
+  position: absolute;
+  bottom: 0;
+  right: 1.5em;
+}
+.date p {
+  color: #1c0068;
+  font-size: 0.8em;
+  font-family: "Montserrat", sans-serif;
+}

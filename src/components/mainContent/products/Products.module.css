@@ -1,0 +1,6 @@
+.ProductsRow {
+  width: 100%;
+  justify-content: flex-start;
+  display: flex;
+  flex-flow: row wrap;
+}

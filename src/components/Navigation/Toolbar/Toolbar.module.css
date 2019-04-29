@@ -13,6 +13,7 @@ header {
   overflow: hidden;
   border-radius: 0 0 85% 85% / 30%;
   z-index: 90;
+  font-family: "Montserrat", sans-serif;
 }
 
 .Toolbar {
@@ -31,7 +32,7 @@ header {
 }
 
 .Toolbar h3 {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Gabriela", serif;
   margin-bottom: 5px;
   font-size: 1.5rem;
 }
