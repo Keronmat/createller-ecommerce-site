@@ -4,84 +4,85 @@ import SortBar from "./sortBar/sortBar";
 import classes from "./mainContent.module.css";
 import Products from "./products/products";
 
-export default class MainContent extends Component {
+class MainContent extends Component {
   constructor(props) {
     super(props);
 
+    // Sets up our initial state
     this.state = {
-      products: [], //stores all data from api
-      loading: false,
       error: false,
-      limit: 9, //the amount of items to load
-      page: 1, // the page to start loading items
-      totalPages: 500,
-      scrolling: false,
       hasMore: true,
-      cart: [],
-      addedToCart: false
+      loading: false,
+      products: [],
+      limit: 10,
+      page: 1
+    };
+
+    // Binds our scroll event handler
+    window.onscroll = () => {
+      const {
+        loadProducts,
+        state: { error, loading, hasMore }
+      } = this;
+
+      // Bails early if:
+      // * there's an error
+      // * it's already loading
+      // * there's nothing left to load
+      if (error || loading || !hasMore) return;
+
+      // Checks that the page has scrolled to the bottom
+      if (
+        window.innerHeight + document.documentElement.scrollTop ===
+        document.documentElement.offsetHeight
+      ) {
+        loadProducts();
+      }
     };
   }
 
-  componentDidMount() {
-    this.loadData();
-
-    this.scrollListener = window.addEventListener("scroll", e => {
-      this.handleScroll(e);
-    });
+  componentWillMount() {
+    // Loads some users on initial load
+    this.loadProducts();
   }
 
-  handleScroll = e => {
-    const { scrolling, page, totalPages } = this.state;
+  loadProducts = () => {
+    const { products, limit, page, total } = this.state;
+    this.setState({ loading: true }, () => {
+      const url = `api/products/?_page=${page}&_limit=${limit}`;
+      axios
+        .get(url)
+        .then(response => {
+          // Creates a massaged array of user data
+          const nextProducts = response.data.map(p => ({
+            id: p.id,
+            face: p.face,
+            date: p.date,
+            price: p.price,
+            size: p.size
+          }));
 
-    if (scrolling) return;
-    if (totalPages <= page) {
-      this.setState({ hasMore: false });
-    }
-
-    const section = document.getElementById("test");
-    //const lastDivOffset = lastDiv.offsetTop + lastDiv.clientHeight;
-    const sectionOffset = +section.offsetTop + section.clientHeight;
-    const pageOffset = window.pageYOffset + window.innerHeight;
-
-    var bottomOffset = 20;
-    if (pageOffset > sectionOffset - bottomOffset) this.loadMore();
-  };
-
-  loadData = () => {
-    const { products, limit, page, hasMore } = this.state;
-
-    this.setState({ loading: true });
-
-    const url = `api/products/?_page=${page}&_limit=${limit}`;
-    axios
-      .get(url)
-      .then(response => {
-        console.log(response.data);
-
-        this.setState({
-          products: [...products, ...response.data],
-          loading: false,
-          scrolling: false,
-          hasMore: products.length >= 500
+          // Merges the next users into our existing users
+          this.setState({
+            // Note: Depending on the API you're using, this value may be
+            // returned as part of the payload to indicate that there is no
+            // additional data to be loaded
+            hasMore: this.state.products.length < 500,
+            loading: false,
+            products: [...this.state.products, ...nextProducts]
+          });
+        })
+        .catch(err => {
+          this.setState({
+            error: err.message,
+            loading: false
+          });
         });
-      })
-      .catch(error => {
-        this.setState({ error: true, loading: false });
-      });
-  };
-  loadMore = () => {
-    this.setState(
-      prevState => ({
-        page: prevState.page + 1,
-        scrolling: true
-      }),
-      this.loadData
-    );
+    });
   };
 
   render() {
     const { error, hasMore, loading, products } = this.state;
-    let end = !this.state.hasMore ? <p>~ end of catalogue ~</p> : null;
     return (
       <div className={[classes.mainContent, "container-fluid"].join(" ")}>
         <SortBar />
@@ -91,8 +92,9 @@ export default class MainContent extends Component {
           loading={loading}
           hasMore={hasMore}
         />
-        {end}
       </div>
     );
   }
 }
+
+export default MainContent;
