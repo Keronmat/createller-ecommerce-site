@@ -15,7 +15,8 @@ class MainContent extends Component {
       loading: false,
       products: [],
       limit: 10,
-      page: 1
+      page: 1,
+      sortBy: "id"
     };
 
     // Binds our scroll event handler
@@ -47,12 +48,13 @@ class MainContent extends Component {
   }
 
   loadProducts = () => {
-    const { products, limit, page, total } = this.state;
+    const { limit, page, sortBy } = this.state;
     this.setState({ loading: true }, () => {
-      const url = `api/products/?_page=${page}&_limit=${limit}`;
+      const url = `api/products?_sort=${sortBy}/products/?_page=${page}&_limit=${limit}`;
       axios
         .get(url)
         .then(response => {
+          console.log(response.data);
           // Creates a massaged array of user data
           const nextProducts = response.data.map(p => ({
             id: p.id,
@@ -81,11 +83,20 @@ class MainContent extends Component {
     });
   };
 
+  sortingHandler = e => {
+    this.setState(
+      {
+        sortBy: e.target.value
+      },
+      () => console.log(this.state.sortBy)
+    );
+  };
+
   render() {
     const { error, hasMore, loading, products } = this.state;
     return (
       <div className={[classes.mainContent, "container-fluid"].join(" ")}>
-        <SortBar />
+        <SortBar sortingHandler={this.sortingHandler} />
         <Products
           products={products}
           error={error}

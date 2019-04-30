@@ -1,7 +1,9 @@
 .sortBar {
-  background-color: #63d2ff;
-  text-transform: capitalize;
+  background-color: transparent;
+  text-transform: uppercase;
   font-weight: 400;
+  width: 90vw;
+  margin: 10px auto 0 auto;
 }
 .heading,
 p {
@@ -15,16 +17,60 @@ p {
 }
 .sortBar form {
   display: flex;
-  justify-content: center;
-  align-content: space-between;
+  justify-content: space-evenly;
+  align-items: flex-end;
   padding: 0;
   margin: 0;
 }
-.sortBar form span {
-  padding-right: 10vmin;
-  margin: 0;
-}
+
 .sortBar label {
+  display: block;
+  position: relative;
+  align-self: flex-end;
+  padding-left: 35px;
+  cursor: pointer;
   margin: 0;
-  padding: 0;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.sortBar label:hover input ~ .radioButton {
+  background-color: #63d2ff;
+}
+.sortBar label input:checked ~ .radioButton {
+  background-color: #003268;
+}
+.sortBar label input:checked ~ .radioButton:after {
+  display: block;
+}
+.sortBar input {
+  cursor: pointer;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.radioButton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0;
+}
+.radioButton:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.sortBar .radioButton:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
 }

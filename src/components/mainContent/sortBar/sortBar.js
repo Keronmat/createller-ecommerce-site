@@ -1,25 +1,46 @@
 import React from "react";
 import classes from "./sortBar.module.css";
 
-export default function SortBar() {
+export default function SortBar(props) {
   return (
     <div className={[classes.sortBar, "row"].join(" ")}>
       <div className={[classes.heading, "col-3"].join(" ")}>
         <p id="sorting">sort by:</p>
       </div>
       <form className="col-9">
-        <span>
-          <label htmlFor="id"> id</label>{" "}
-          <input name="sort" type="radio" value="id" id="id" />
-        </span>
-        <span>
-          <label htmlFor="size"> size</label>{" "}
-          <input name="sort" type="radio" value="size" id="size" />
-        </span>
-        <span>
-          <label htmlFor="price"> price</label>{" "}
-          <input name="sort" type="radio" value="price" id="price" />
-        </span>
+        <label>
+          id
+          <input
+            name="sort"
+            type="radio"
+            value="id"
+            checked
+            onChange={e => props.sortingHandler(e)}
+          />
+          <span className={classes.radioButton} />
+        </label>
+
+        <label>
+          size
+          <input
+            name="sort"
+            type="radio"
+            value="size"
+            onChange={e => props.sortingHandler(e)}
+          />
+          <span className={classes.radioButton} />
+        </label>
+
+        <label>
+          price
+          <input
+            name="sort"
+            type="radio"
+            value="price"
+            onChange={e => props.sortingHandler(e)}
+          />
+          <span className={classes.radioButton} />
+        </label>
       </form>
     </div>
   );
