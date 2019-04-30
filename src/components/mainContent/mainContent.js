@@ -16,46 +16,49 @@ class MainContent extends Component {
       products: [],
       limit: 10,
       page: 1,
-      sortBy: ""
+      total: 500,
+      sortBy: "price"
     };
+  }
 
-    // Binds our scroll event handler
+  componentDidMount() {
+    // Loads some users on initial load
+    this.loadProducts();
+    // check to see if the window is being scroll
     window.onscroll = () => {
-      const {
-        loadProducts,
-        state: { error, loading, hasMore }
-      } = this;
+      const { error, loading, hasMore } = this.state;
 
-      // Bails early if:
-      // * there's an error
-      // * it's already loading
-      // * there's nothing left to load
+      // if there's an error||it's already loading||there's nothing left to load
+      // do nothing
       if (error || loading || !hasMore) return;
 
-      // Checks that the page has scrolled to the bottom
+      // Checks that the page has scrolled to the bottom and load products
       if (
         window.innerHeight + document.documentElement.scrollTop ===
         document.documentElement.offsetHeight
       ) {
-        loadProducts();
+        this.loadProducts();
       }
     };
   }
 
-  componentWillMount() {
-    // Loads some users on initial load
-    this.loadProducts();
+  componentDidUpdate(prevProps, prevState) {
+    //checks to see if the previous sortBy state has change (price, size,id)
+    if (prevState.sortBy !== this.state.sortBy) {
+      //if yes load the products
+      this.loadProducts();
+    }
   }
-
   loadProducts = () => {
-    const { limit, page, sortBy } = this.state;
+    const { limit, page, sortBy, total } = this.state;
+    // the state to true for loading before the data is received
     this.setState({ loading: true }, () => {
-      const url = `api/products?_sort=${sortBy}/products/?_page=${page}&_limit=${limit}`;
+      const url = `/api/products?_sort=${sortBy}&products?_page=${page}&_limit=${limit}`;
+
       axios
         .get(url)
         .then(response => {
-          console.log(response.data);
-          // Creates a massaged array of user data
+          // stores all the data from the server in the variable
           const nextProducts = response.data.map(p => ({
             id: p.id,
             face: p.face,
@@ -64,17 +67,17 @@ class MainContent extends Component {
             size: p.size
           }));
 
-          // Merges the next users into our existing users
           this.setState({
-            // Note: Depending on the API you're using, this value may be
-            // returned as part of the payload to indicate that there is no
-            // additional data to be loaded
-            hasMore: this.state.products.length < 500,
+            //check to see if products length is more than 500. this will let me know if I should add end message
+            // change loading to false since we have received all of our data now
+            // Merges the next products into our existing products
+            hasMore: this.state.products.length < total,
             loading: false,
             products: [...this.state.products, ...nextProducts]
           });
         })
         .catch(err => {
+          //manage errors by adding an error message to state to be displayed if any.
           this.setState({
             error: err.message,
             loading: false
@@ -84,12 +87,9 @@ class MainContent extends Component {
   };
 
   sortingHandler = e => {
-    this.setState(
-      {
-        sortBy: e.target.value
-      },
-      () => console.log(this.state.sortBy)
-    );
+    //receives an event and set sortBy to size, price or value.
+    // set products back to an empty array, just before componentDid update loads products again
+    this.setState({ sortBy: e.target.value, products: [] });
   };
 
   render() {

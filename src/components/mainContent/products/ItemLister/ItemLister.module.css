@@ -11,14 +11,21 @@
   background: #f7f9f9;
   font-family: "Gabriela", serif;
 }
-
+.Product span {
+  margin: 0 auto;
+  text-align: center;
+}
 .ProductInner div {
   max-width: 100%;
   height: auto !important;
   text-align: center;
   color: #003268;
   align-content: space-between;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
 }
+
 .ProductInner div p {
   margin-right: 1em;
 }
