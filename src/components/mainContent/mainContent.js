@@ -16,7 +16,7 @@ class MainContent extends Component {
       products: [],
       limit: 10,
       page: 1,
-      sortBy: "id"
+      sortBy: ""
     };
 
     // Binds our scroll event handler
@@ -96,7 +96,10 @@ class MainContent extends Component {
     const { error, hasMore, loading, products } = this.state;
     return (
       <div className={[classes.mainContent, "container-fluid"].join(" ")}>
-        <SortBar sortingHandler={this.sortingHandler} />
+        <SortBar
+          sortingHandler={this.sortingHandler}
+          sortByValue={this.state.sortBy}
+        />
         <Products
           products={products}
           error={error}

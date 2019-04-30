@@ -3,74 +3,95 @@
   text-transform: uppercase;
   font-weight: 400;
   width: 90vw;
-  margin: 10px auto 0 auto;
-}
-.heading,
-p {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 500;
-  font-size: 1rem;
-}
-.sortBar form {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: flex-end;
-  padding: 0;
-  margin: 0;
+  margin: 5px auto;
 }
 
-.sortBar label {
-  display: block;
+.sortBar form {
   position: relative;
-  align-self: flex-end;
-  padding-left: 35px;
-  cursor: pointer;
-  margin: 0;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.sortBar label:hover input ~ .radioButton {
-  background-color: #63d2ff;
-}
-.sortBar label input:checked ~ .radioButton {
-  background-color: #003268;
-}
-.sortBar label input:checked ~ .radioButton:after {
-  display: block;
-}
-.sortBar input {
-  cursor: pointer;
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
+  margin: 10px auto;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
 }
 .radioButton {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: #ccc;
-  border-radius: 50%;
-  margin: 0;
+  position: relative;
+  display: block;
 }
-.radioButton:after {
+.radioButton label {
+  display: block;
+  background: #f7f9f9;
+  color: #000;
+  border-radius: 5px;
+  padding: 10px;
+  border: 2px solid #63d2ff;
+  margin: 0 15px;
+  width: 25vmin;
+  cursor: pointer;
+  overflow: hidden;
+}
+.radioButton label:after,
+.radioButton label:before {
   content: "";
   position: absolute;
-  display: none;
+  right: 20px;
+  top: 13px;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  background: #63d2ff;
 }
-.sortBar .radioButton:after {
-  top: 9px;
-  left: 9px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: white;
+.radioButton label:before {
+  background: transparent;
+  transition: 0.1s width cubic-bezier(0.075, 0.82, 0.165, 1) 0s,
+    0.3s height cubic-bezier(0.075, 0.82, 0.165, 2) 0.1s;
+  z-index: 2;
+  overflow: hidden;
+}
+.radioButton input[type="radio"] {
+  display: none;
+  position: absolute;
+  width: 100%;
+  appearance: none;
+}
+.radioButton input[type="radio"]:checked + label {
+  background: #63d2ff;
+  animation-name: blink;
+  animation-duration: 1s;
+  border-color: #1776b1;
+}
+.radioButton input[type="radio"]:checked + label:after {
+  background: #1c0068;
+}
+.radioButton input[type="radio"]:checked + label:before {
+  width: 20px;
+  height: 20px;
+}
+@keyframes blink {
+  0% {
+    background-color: #c6eeff;
+  }
+  10% {
+    background-color: #b8eaff;
+  }
+  11% {
+    background-color: #a9e6ff;
+  }
+  29% {
+    background-color: #9be2ff;
+  }
+  30% {
+    background-color: #8ddeff;
+  }
+  50% {
+    background-color: #7fdaff;
+  }
+  45% {
+    background-color: #71d6ff;
+  }
+  50% {
+    background-color: #63d2ff;
+  }
+  100% {
+    background-color: #5aefe8;
+  }
 }

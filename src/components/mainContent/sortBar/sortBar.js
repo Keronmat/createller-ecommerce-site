@@ -4,43 +4,42 @@ import classes from "./sortBar.module.css";
 export default function SortBar(props) {
   return (
     <div className={[classes.sortBar, "row"].join(" ")}>
-      <div className={[classes.heading, "col-3"].join(" ")}>
-        <p id="sorting">sort by:</p>
-      </div>
-      <form className="col-9">
-        <label>
-          id
+      <form className="col-12">
+        <div className={classes.radioButton}>
           <input
-            name="sort"
+            onChange={e => props.sortingHandler(e)}
             type="radio"
+            id="id"
+            name="sort"
             value="id"
-            checked
-            onChange={e => props.sortingHandler(e)}
+            checked={props.sortByValue === "id"}
           />
-          <span className={classes.radioButton} />
-        </label>
+          <label htmlFor="id">sort by id</label>
+        </div>
 
-        <label>
-          size
+        <div className={classes.radioButton}>
           <input
-            name="sort"
+            onChange={props.sortingHandler}
             type="radio"
+            id="size"
+            name="sort"
             value="size"
-            onChange={e => props.sortingHandler(e)}
+            checked={props.sortByValue === "size"}
           />
-          <span className={classes.radioButton} />
-        </label>
+          <label htmlFor="size">sort by size</label>
+        </div>
 
-        <label>
-          price
+        <div className={classes.radioButton}>
           <input
-            name="sort"
+            onChange={props.sortingHandler}
             type="radio"
+            id="price"
+            name="sort"
             value="price"
-            onChange={e => props.sortingHandler(e)}
+            checked={props.sortByValue === "price"}
           />
-          <span className={classes.radioButton} />
-        </label>
+          <label htmlFor="price">sort by price</label>
+        </div>
       </form>
     </div>
   );
