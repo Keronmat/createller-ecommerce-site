@@ -3,17 +3,30 @@ import { Button, Table } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
+//showing items in cart with 3 columns. Price, face and remove button
+// show subtotal for all items added
+//dummy function to reflect ordersummary
+
 export default class OrderSummary extends Component {
   render() {
     const cartSummary = this.props.cart.map((item, index) => {
       return (
-        <tr key={item.productID} style={{ color: "white", cursor: "pointer" }}>
+        <tr
+          key={item.productID + index}
+          style={{ color: "white", cursor: "pointer" }}
+        >
           <td>{item.productDescript}</td>
           <td>${item.productPrice}</td>
           <td>
             <FontAwesomeIcon
               icon={faTimes}
-              style={{ color: "#003268", cursor: "pointer" }}
+              style={{ color: "#ffd700", cursor: "pointer" }}
+              onClick={() =>
+                this.props.removeCartItemHandler(
+                  item.productID,
+                  item.productPrice
+                )
+              }
             />
           </td>
         </tr>
@@ -44,7 +57,7 @@ export default class OrderSummary extends Component {
               >
                 Sub-Total
                 <span style={{ margin: "10px" }}>
-                  ${this.props.totalForCart}
+                  ${this.props.totalForCart.toFixed(2)}
                 </span>
               </td>
             </tr>
