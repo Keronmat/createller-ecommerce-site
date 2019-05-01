@@ -6,7 +6,7 @@ This is intended only for the Creatella's use. It is done has a test project, to
 ![Homepage - Side Panel Closed](https://github.com/Keronmat/createller-ecommerce-site/blob/master/src/assets/images/mobile.PNG?raw=true)
 ![Homepage - Side Panel Open](https://github.com/Keronmat/createller-ecommerce-site/blob/master/src/assets/images/mobile%20with%20sidedrawer.PNG?raw=true)
 
-###### Main Features
+### Main Features
 
 - Products are displayed in a grid.
 - The user has an option to sort the products by "size", "price" or "id". The products list reloads when a new sorting option is chosen.
@@ -22,7 +22,7 @@ This is intended only for the Creatella's use. It is done has a test project, to
 - After every 20 products a modal pops up with an advertisement from a sponsor. The same markup as the advertisement in the header shown in `public/index/html`,was used and `?r` query param is used to randomly generate a new image each time an ad is displayed.
 - The Ads are randomly selected, A user never sees the same ad twice in a row.
 
-### Other feactures
+###### Other feactures
 
 - Responsive website
 - Sign In and Sign up buttons.
@@ -36,7 +36,7 @@ This is intended only for the Creatella's use. It is done has a test project, to
 
 - Using { responseType: "arraybuffer" } to received images form a server in binary data. Then you can convert back that data to be displayed on your website.
 
-###### What is let to be done
+###### What is left to be done
 
 - Add state manager sucher as redux.
 - Add missing pages and links to complete the application (e.g:Directory link and checkout page).

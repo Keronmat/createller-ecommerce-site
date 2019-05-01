@@ -110,7 +110,7 @@ class MainContent extends Component {
   };
 
   handleAds = () => {
-    const { productsCount, ads } = this.state;
+    const { productsCount } = this.state;
 
     // if the product count is divisble by 20 change ads state to true and modal will open
     // make request for the ads api
@@ -120,6 +120,7 @@ class MainContent extends Component {
 
       // generate a ramdom number
       let randomNum = Math.floor(Math.random() * 1000);
+      console.log(randomNum);
       axios
         .get(`/ads/?r=${randomNum}`, { responseType: "arraybuffer" }) //use arraybuffer to get img in binary data
         .then(response => {
