@@ -3,8 +3,8 @@ import axios from "../../axios-products";
 import SortBar from "./sortBar/sortBar";
 import Products from "./products/products";
 import Modal from "../../UI/Modal/Modal";
-//import Ads from "./Ads/ads";
 import classes from "./mainContent.module.css";
+//import parse from "html-react-parser";
 
 class MainContent extends Component {
   constructor(props) {
@@ -22,7 +22,8 @@ class MainContent extends Component {
       sortBy: "price",
       addsData: "",
       ads: false,
-      productsCount: 0
+      productsCount: 0,
+      imgSrc: null
     };
   }
 
@@ -44,6 +45,8 @@ class MainContent extends Component {
         document.documentElement.offsetHeight
       ) {
         this.loadProducts();
+
+        // get the amount of products loaded and update the state
         const node = document.getElementById("productSection")
           .childElementCount;
         this.setState({ productsCount: node });
@@ -57,6 +60,8 @@ class MainContent extends Component {
       //if yes load the products
       this.loadProducts();
     }
+
+    //if there was a change in the product Count state run the ads handler
     if (this.state.productsCount !== prevState.productsCount) {
       this.handleAds();
     }
@@ -105,23 +110,28 @@ class MainContent extends Component {
   };
 
   handleAds = () => {
-    const { adsData } = this.state;
+    const { productsCount, ads } = this.state;
 
-    const node = document.getElementById("productSection").childElementCount;
-    if (node % 20 === 0) {
+    // if the product count is divisble by 20 change ads state to true and modal will open
+    // make request for the ads api
+
+    if (productsCount % 20 === 0) {
       this.setState({ ads: true });
+
+      // generate a ramdom number
+      let randomNum = Math.floor(Math.random() * 1000);
       axios
-        .get(`/?r`)
+        .get(`/ads/?r=${randomNum}`, { responseType: "arraybuffer" }) //use arraybuffer to get img in binary data
         .then(response => {
-          console.log(response);
-          this.setState(
-            {
-              loading: false,
-              adsData: response.data,
-              productsCount: node
-            },
-            () => console.log(node, this.state.ads)
+          const base64 = btoa(
+            new Uint8Array(response.data).reduce(
+              (data, byte) => data + String.fromCharCode(byte),
+              ""
+            )
           );
+          this.setState({ imgSrc: "data:;base64," + base64 }, () =>
+            console.log(productsCount, ads)
+          ); // the data in state to be retrieve by the modal.
         })
         .catch(err => {
           //manage errors by adding an error message to state to be displayed if any.
@@ -132,20 +142,33 @@ class MainContent extends Component {
         });
     }
   };
-
+  // use to supply the backdrop of the modal with ads state. set to false to close
   closeAddHandler = () => {
     this.setState({ ads: false });
   };
   render() {
-    const { error, hasMore, loading, products, ads, adsData } = this.state;
+    const { error, hasMore, loading, products, ads, imgSrc } = this.state;
+
     let modalAds = null;
-    if (adsData) {
+    if (imgSrc) {
       modalAds = (
-        <div
-          style={{ height: "250px" }}
+        <div style={{ backgroundColor: "rgba(0,0,0,0.8)" }}>
+          <h1>Products Grid</h1>
+          <p>
+            Here you're sure to find a bargain on some of the finest ascii
+            available to purchase. Be sure to peruse our selection of ascii
+            faces in an exciting range of sizes and prices.
+          </p>
+          <p>But first, a word from our sponsors:</p>
+          <img src={this.state.imgSrc} alt="ads" style={{ width: "100%" }} />
+        </div>
+      );
+      /* <div
+          style={{ height: "auto", backgroundColor: "rgba(255,255,255,.2)" }}
           dangerouslySetInnerHTML={{ __html: adsData }}
         />
       );
+      parse(`${adsData}`);*/
     }
     return (
       <div className={[classes.mainContent, "container-fluid"].join(" ")}>
@@ -153,7 +176,9 @@ class MainContent extends Component {
           sortingHandler={this.sortingHandler}
           sortByValue={this.state.sortBy}
         />
+
         <Products
+          cartHandler={this.props.cartHandler}
           products={products}
           error={error}
           loading={loading}

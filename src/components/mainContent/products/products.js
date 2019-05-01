@@ -31,7 +31,9 @@ export default class Products extends Component {
             return (
               // function to list out grids of data
               <ItemLister
+                cartHandler={this.props.cartHandler}
                 key={item.id + index}
+                id={item.id}
                 date={date}
                 face={item.face}
                 price={price.toFixed(2)}

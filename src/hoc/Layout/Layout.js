@@ -35,6 +35,7 @@ export default class Layout extends Component {
     }));
     console.log(this.state.signUp);
   };
+
   render() {
     let formEl = !this.state.signUp ? (
       <SignInForm
@@ -61,6 +62,8 @@ export default class Layout extends Component {
           rightDrawerToggler={this.rightDrawerToggler}
           openSideDrawer={this.state.showSideDrawerLeft}
           openSignInModal={this.signInHandler}
+          cartCount={this.props.cartCount}
+          totalForCart={this.props.totalForCart}
         />
         <SidedrawerLeft
           open={this.state.showSideDrawerLeft}

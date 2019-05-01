@@ -30,7 +30,7 @@ export default function Toolbar(props) {
         <div
           className={[classes.CartDiv, "col-md-3 col-sm-4 col-xs-4"].join(" ")}
         >
-          <Cart />
+          <Cart cartCount={props.cartCount} totalForCart={props.totalForCart} />
         </div>
       </div>
       <div className={[classes.Nav, "row"].join(" ")}>
