@@ -151,7 +151,7 @@ class MainContent extends Component {
     let modalAds = null;
     if (imgSrc) {
       modalAds = (
-        <div style={{ backgroundColor: "rgba(0,0,0,0.8)" }}>
+        <div style={{ backgroundColor: "rgba(0,0,0,0.9)" }}>
           <h1>Products Grid</h1>
           <p>
             Here you're sure to find a bargain on some of the finest ascii

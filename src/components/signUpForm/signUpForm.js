@@ -3,6 +3,9 @@ import classes from "./signUpForm.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
+// dummy function that displays sign up form if props is set to true
+// click on the "Already have an account?" button to switch to sign in form.
+
 export default function SignUpForm(props) {
   return (
     <div className={classes.signUpForm}>

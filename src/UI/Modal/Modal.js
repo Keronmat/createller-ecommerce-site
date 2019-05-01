@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import classes from "./Modal.module.css";
 import Backdrop from "../Backdrop/Backdrop";
 
+//reusable modal component that takes in a show props and modalClosed.
+//show === true displays the component and show === false closes the component
+// the closedModal props is passed down to the backdrop. Whenever you click the backdrop the modal closes.
+
 export default class Modal extends Component {
   shouldComponentUpdate(nextProps, nextState) {
     return (

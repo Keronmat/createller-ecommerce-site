@@ -5,6 +5,12 @@ import NavigationItems from "../NavigationItems/NavigationItems";
 import HamburgerMenu from "../Sidedrawer/HamburgerMenu/HamburgerMenu";
 import LogoLarge, { LogoMobile } from "../../Logo/Logo";
 
+//This component is a header container that holds the logo, hamburger menu, nav-links and cart.
+
+//Only one logo to be displayed at a time.  LogoLarge for larger screens and LogoMobile for smaller screens
+
+// Only one props passed to Navigational Items for SignIN button. when click opens the modal with sign in form.
+
 export default function Toolbar(props) {
   return (
     <header className={[classes.Toolbar, "header"].join(" ")}>
@@ -15,8 +21,8 @@ export default function Toolbar(props) {
           )}
         >
           <HamburgerMenu
-            clicked={props.leftDrawerToggler}
-            openSideDrawer={props.openSideDrawer}
+            clicked={props.leftDrawerToggler} //props has a boolean value to open and close the side drawer
+            openSideDrawer={props.openSideDrawer} // props has a boolean value for hamburger animation
           />
         </div>
         <div
@@ -31,9 +37,9 @@ export default function Toolbar(props) {
           className={[classes.CartDiv, "col-md-3 col-sm-4 col-xs-4"].join(" ")}
         >
           <Cart
-            cartCount={props.cartCount}
-            totalForCart={props.totalForCart}
-            openCheckoutHandler={props.openCheckoutHandler}
+            cartCount={props.cartCount} //shows the total items in cart
+            totalForCart={props.totalForCart} //shows the total money for all items in cart
+            openCheckoutHandler={props.openCheckoutHandler} // function to toggle modal to show checkout information
           />
         </div>
       </div>

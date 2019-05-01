@@ -3,6 +3,10 @@ import ItemLister from "./ItemLister/ItemLister";
 import Spinner from "../../../UI/Spinner/Spinner";
 import classes from "./Products.module.css";
 
+//component displays all items on the page as data is fetched from the server.
+// displays error if server failed.
+// displays spinner while server is fetching
+
 export default class Products extends Component {
   render() {
     const { error, hasMore, loading, products } = this.props;

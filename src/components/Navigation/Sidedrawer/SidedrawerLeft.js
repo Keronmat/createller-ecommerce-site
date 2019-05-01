@@ -1,6 +1,9 @@
 import React from "react";
 import classes from "./Sidedrawer.module.css";
 
+//displays the sideDrawer for mobiles. opens and closes when hamburger menu is clicked
+// Use CSS translate to hide and show the menu.
+
 export default function SidedrawerLeft(props) {
   let sideDrawerStyle = props.open
     ? { transform: "translateX(0)" }

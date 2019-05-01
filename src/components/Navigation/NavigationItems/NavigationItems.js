@@ -4,6 +4,8 @@ import NavigationItem, {
   NavigationItemDropdown
 } from "./NavigationItem/NavigationItem";
 
+//Dummy HOC component that just displays each nav link. Also, reusable.
+
 export default class NavigationItems extends Component {
   render() {
     return (

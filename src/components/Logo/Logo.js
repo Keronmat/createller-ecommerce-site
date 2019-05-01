@@ -3,6 +3,9 @@ import classes from "./Logo.module.css";
 import createllaMobile from "../../assets/images/Creatella-logo-sm.png";
 import createllaLogo from "../../assets/images/creatella-logo.png";
 
+//imports to image for small and large screens
+// only one is display at a time and has their own styling.
+
 export default function LogoLarge() {
   return (
     <a href="/" className={[classes.Logo, "navbar-brand"].join(" ")}>

@@ -1,6 +1,8 @@
 import React from "react";
 import classes from "./sortBar.module.css";
 
+//Component is a basic form with radio buttons for sorting purposes.
+
 export default function SortBar(props) {
   return (
     <div className={[classes.sortBar, "row"].join(" ")}>

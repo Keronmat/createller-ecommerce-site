@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import classes from "./ItemLister.module.css";
 
+//this component displays a single grid item. Reusable for lots of grids
+
 export default function ItemLister(props) {
   return (
     <div id="lister" className={[classes.Product, "product"].join(" ")}>

@@ -6,6 +6,9 @@ import Modal from "../../UI/Modal/Modal";
 import SignInForm from "../../components/signInForm/signInForm";
 import SignUpForm from "../../components/signUpForm/signUpForm";
 
+//HOC component that is reusble for other pages.
+// Contains the main layout of the page
+
 export default class Layout extends Component {
   constructor(props) {
     super(props);
@@ -16,24 +19,28 @@ export default class Layout extends Component {
       signUp: false
     };
   }
+  //manages the side drawer. False closes and True opens the drawer
+  // showSideDrawerLeft state changes when hamburger menu is clicked on
   leftDrawerToggler = () => {
     this.setState(prevState => ({
       showSideDrawerLeft: !prevState.showSideDrawerLeft
     }));
-    //console.log(this.state);
   };
+  //manages the sign in /sign up modal. False modal and True opens the modal
+  // showSideDrawerLeft state changes when hamburger menu is clicked on
   signInCancelHandler = () => {
     this.setState({ clickSignIn: false });
   };
+  //manages what form should be displayed. true changes the sign up form to sign in
   signInHandler = () => {
     this.setState({ clickSignIn: true });
-    console.log(this.state.clickSignIn);
   };
+  //manages what form should be displayed - sign-up. true changes the sign in form to sign up
   signUpHandler = () => {
     this.setState(prevState => ({
       signUp: !prevState.signUp
     }));
-    console.log(this.state.signUp);
+    // console.log(this.state.signUp);
   };
 
   render() {
