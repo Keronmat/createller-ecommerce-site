@@ -2,9 +2,9 @@
 
 This is intended only for the Creatella's use. It is done has a test project, to show my abilities to Creatella. The application is built using the library React JS. The application still has a few bugs when using scientific functions.
 
-![Homepage -large screen](https://github.com/Keronmat/react-calculator/blob/master/img/google-theme-1.PNG?raw=true)
-![Homepage - Side Panel Closed](https://github.com/Keronmat/react-calculator/blob/master/img/android-theme.PNG?raw=true)
-![Homepage - Side Panel Open](https://github.com/Keronmat/react-calculator/blob/master/img/history-android-theme.PNG?raw=true)
+![Homepage -large screen](https://github.com/Keronmat/createller-ecommerce-site/blob/master/src/assets/images/homepage.PNG?raw=true)
+![Homepage - Side Panel Closed](https://github.com/Keronmat/createller-ecommerce-site/blob/master/src/assets/images/mobile.PNG?raw=true)
+![Homepage - Side Panel Open](https://github.com/Keronmat/createller-ecommerce-site/blob/master/src/assets/images/mobile%20with%20sidedrawer.PNG?raw=true)
 
 ###### Main Features
 
