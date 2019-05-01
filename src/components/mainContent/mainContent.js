@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import axios from "../../axios-products";
 import SortBar from "./sortBar/sortBar";
-import classes from "./mainContent.module.css";
 import Products from "./products/products";
+import Modal from "../../UI/Modal/Modal";
+//import Ads from "./Ads/ads";
+import classes from "./mainContent.module.css";
 
 class MainContent extends Component {
   constructor(props) {
@@ -17,16 +19,20 @@ class MainContent extends Component {
       limit: 10,
       page: 1,
       total: 500,
-      sortBy: "price"
+      sortBy: "price",
+      addsData: "",
+      ads: false,
+      productsCount: 0
     };
   }
 
   componentDidMount() {
     // Loads some users on initial load
     this.loadProducts();
+
     // check to see if the window is being scroll
     window.onscroll = () => {
-      const { error, loading, hasMore } = this.state;
+      const { error, loading, hasMore, productsCount } = this.state;
 
       // if there's an error||it's already loading||there's nothing left to load
       // do nothing
@@ -38,6 +44,9 @@ class MainContent extends Component {
         document.documentElement.offsetHeight
       ) {
         this.loadProducts();
+        const node = document.getElementById("productSection")
+          .childElementCount;
+        this.setState({ productsCount: node });
       }
     };
   }
@@ -47,6 +56,9 @@ class MainContent extends Component {
     if (prevState.sortBy !== this.state.sortBy) {
       //if yes load the products
       this.loadProducts();
+    }
+    if (this.state.productsCount !== prevState.productsCount) {
+      this.handleAds();
     }
   }
   loadProducts = () => {
@@ -92,8 +104,49 @@ class MainContent extends Component {
     this.setState({ sortBy: e.target.value, products: [] });
   };
 
+  handleAds = () => {
+    const { adsData } = this.state;
+
+    const node = document.getElementById("productSection").childElementCount;
+    if (node % 20 === 0) {
+      this.setState({ ads: true });
+      axios
+        .get(`/?r`)
+        .then(response => {
+          console.log(response);
+          this.setState(
+            {
+              loading: false,
+              adsData: response.data,
+              productsCount: node
+            },
+            () => console.log(node, this.state.ads)
+          );
+        })
+        .catch(err => {
+          //manage errors by adding an error message to state to be displayed if any.
+          this.setState({
+            error: err.message,
+            loading: false
+          });
+        });
+    }
+  };
+
+  closeAddHandler = () => {
+    this.setState({ ads: false });
+  };
   render() {
-    const { error, hasMore, loading, products } = this.state;
+    const { error, hasMore, loading, products, ads, adsData } = this.state;
+    let modalAds = null;
+    if (adsData) {
+      modalAds = (
+        <div
+          style={{ height: "250px" }}
+          dangerouslySetInnerHTML={{ __html: adsData }}
+        />
+      );
+    }
     return (
       <div className={[classes.mainContent, "container-fluid"].join(" ")}>
         <SortBar
@@ -106,6 +159,9 @@ class MainContent extends Component {
           loading={loading}
           hasMore={hasMore}
         />
+        <Modal show={ads} modalClosed={this.closeAddHandler}>
+          {modalAds}
+        </Modal>
       </div>
     );
   }

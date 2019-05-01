@@ -8,7 +8,7 @@ export default class Products extends Component {
     const { error, hasMore, loading, products } = this.props;
     return (
       <React.Fragment>
-        <section className={classes.ProductsRow}>
+        <section id="productSection" className={classes.ProductsRow}>
           {products.map((item, index) => {
             //map through all the data that was received by the API.
             const price = item.price / 100; //devide cents by 100 to get dollars value
