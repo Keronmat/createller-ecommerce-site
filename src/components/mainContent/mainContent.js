@@ -129,9 +129,7 @@ class MainContent extends Component {
               ""
             )
           );
-          this.setState({ imgSrc: "data:;base64," + base64 }, () =>
-            console.log(productsCount, ads)
-          ); // the data in state to be retrieve by the modal.
+          this.setState({ imgSrc: "data:;base64," + base64 }); // the data in state to be retrieve by the modal.
         })
         .catch(err => {
           //manage errors by adding an error message to state to be displayed if any.

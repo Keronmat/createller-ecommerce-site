@@ -1,68 +1,69 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Ecomerce Website for Creatella Project
 
-## Available Scripts
+This is intended only for the Creatella's use. It is done has a test project, to show my abilities to Creatella. The application is built using the library React JS. The application still has a few bugs when using scientific functions.
 
-In the project directory, you can run:
+![Homepage -large screen](https://github.com/Keronmat/react-calculator/blob/master/img/google-theme-1.PNG?raw=true)
+![Homepage - Side Panel Closed](https://github.com/Keronmat/react-calculator/blob/master/img/android-theme.PNG?raw=true)
+![Homepage - Side Panel Open](https://github.com/Keronmat/react-calculator/blob/master/img/history-android-theme.PNG?raw=true)
 
-### `npm start`
+###### Main Features
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Products are displayed in a grid.
+- The user has an option to sort the products by "size", "price" or "id". The products list reloads when a new sorting option is chosen.
+- Each product has a "size" field price field and date.
+- The font-size (in pixels). The "price" is formatted as dollars like `$3.51`. The "date" field, displays relative time (eg. "3 days ago") ,unless they are older than 1 week.
+- The product grid automatically load more items as you scroll down.
+- An animated loading ("loading..." if CSS not wokring) message is shown while the user waits for the data to load.
+  -\*\* to improve the user's experience, we should always pre-emptively fetch the next batch of results in advance, making use of idle-time. But they still should not be displayed until the user has scrolled to the bottom of the product grid.
+- When the user reaches the end and there are no more products to display, the message "~ end of catalogue ~" is shown.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Ads features
 
-### `npm test`
+- After every 20 products a modal pops up with an advertisement from a sponsor. The same markup as the advertisement in the header shown in `public/index/html`,was used and `?r` query param is used to randomly generate a new image each time an ad is displayed.
+- The Ads are randomly selected, A user never sees the same ad twice in a row.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Other feactures
 
-### `npm run build`
+- Responsive website
+- Sign In and Sign up buttons.
+- The user can add items to the cart.
+- Total Items and prices are displayed
+- Side drawer for mobile (<768px).
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+###### New Things I've learnt in this project
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+- Using window onscroll method along with other window objects to calculate the screen size for infinte scrolling.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Using { responseType: "arraybuffer" } to received images form a server in binary data. Then you can convert back that data to be displayed on your website.
 
-### `npm run eject`
+###### What is let to be done
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Add state manager sucher as redux.
+- Add missing pages and links to complete the application (e.g:Directory link and checkout page).
+- Test for bugs and fix.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- clone the repository-`git clone https://github.com/Keronmat/creatella-ecommerce-site`
+- Use terminal to browse to the repository - `cd creatella-ecommerce-site`
+- Run the command - `npm install` /`yarn`
+- Start the application - `npm start` `yarn start`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- npm install/ yarn start Runs the app in the development mode.<br>
+  Set to be open on [http://localhost:3005](http://localhost:3005) to view it in the browser.
 
-## Learn More
+###### Get the Server up and running
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- git clone creatella-ecommerce-server
+- At any location on your computer in a folder, extract the SERVER files.
+- Oper your terminal and move to the folder creatella-ecommerce-server -`cd creatella-ecommerce-server`.
+- Run the command - `npm install` /`yarn`.
+- Start the server - `npm start` `yarn start`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The server will now be up and running.
 
-### Code Splitting
+###### Both server and application needs to be up at the same time.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Author
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+###### Keron Matthews
