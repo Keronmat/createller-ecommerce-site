@@ -33,7 +33,7 @@ class MainContent extends Component {
 
     // check to see if the window is being scroll
     window.onscroll = () => {
-      const { error, loading, hasMore, productsCount } = this.state;
+      const { error, loading, hasMore } = this.state;
 
       // if there's an error||it's already loading||there's nothing left to load
       // do nothing

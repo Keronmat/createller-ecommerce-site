@@ -8,15 +8,16 @@
   cursor: pointer;
   display: flex;
   line-height: 18px;
+  text-decoration: none !important;
+  outline: none;
+  background: transparent;
+  border: none;
 }
 
-.Cart a {
-  text-decoration: none !important;
-}
 .Cart span {
   margin-right: 5px;
 }
-.Cart a:hover,
+.Cart button:hover,
 .Cart span:hover {
   background-color: none;
   text-decoration: none !important;
@@ -37,9 +38,6 @@
     line-height: 25px;
   }
 
-  .Cart a {
-    text-decoration: none !important;
-  }
   .Cart span {
     margin-right: 10px;
   }

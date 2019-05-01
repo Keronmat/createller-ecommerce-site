@@ -16,7 +16,7 @@ class App extends Component {
     };
   }
 
-  cartHandler = (itemID, itemPrice) => {
+  cartHandler = (itemID, itemPrice, itemFace) => {
     const { totalForCart, cart, cartCount } = this.state;
 
     const oldCount = cartCount;
@@ -27,7 +27,14 @@ class App extends Component {
     this.setState(
       () => {
         return {
-          cart: [...cart, { productID: itemID, productPrice: itemPrice }],
+          cart: [
+            ...cart,
+            {
+              productID: itemID,
+              productPrice: itemPrice,
+              productDescript: itemFace
+            }
+          ],
           totalForCart: newPrice,
           cartCount: updatedCounted
         };
@@ -40,6 +47,9 @@ class App extends Component {
   };
   openCheckoutHandler = () => {
     this.setState({ checkout: true });
+  };
+  purchaseCheckoutHandler = () => {
+    alert("checkout");
   };
   render() {
     return (
@@ -54,7 +64,12 @@ class App extends Component {
             show={this.state.checkout}
             modalClosed={this.closeCheckoutHandler}
           >
-            <OrderSummary />
+            <OrderSummary
+              cart={this.state.cart}
+              totalForCart={this.state.totalForCart}
+              purchaseCheckout={this.purchaseCheckoutHandler}
+              purchaseCancelled={this.closeCheckoutHandler}
+            />
           </Modal>
         </Layout>
       </div>

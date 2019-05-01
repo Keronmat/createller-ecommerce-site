@@ -3,42 +3,21 @@ import { Button, Table } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
-const INGREDIENT_PRICES = {
-  pepperoni: 2,
-  sausage: 1,
-  ham: 4,
-  bacon: 3,
-  chicken: 2,
-  mushrooms: 1,
-  peppers: 0.5,
-  onions: 0.5,
-  pineapple: 2,
-  jalapenos: 1
-};
-
 export default class OrderSummary extends Component {
-  componentWillUpdate() {
-    console.log("[ordersummary]-willupdate");
-  }
-
   render() {
-    const ingredientSummary = Object.keys(this.props.ingredients).map(ig => {
-      if (this.props.ingredients[ig] === true) {
-        return (
-          <tr key={ig} style={{ color: "white", cursor: "pointer" }}>
-            <td>{ig}</td>
-            <td>${INGREDIENT_PRICES[ig]}</td>
-            <td>
-              <FontAwesomeIcon
-                icon={faTimes}
-                onClick={() => this.props.ingredientRemoved(ig)}
-                style={{ color: "#ED1C24", cursor: "pointer" }}
-              />
-            </td>
-          </tr>
-        );
-      }
-      return ingredientSummary;
+    const cartSummary = this.props.cart.map((item, index) => {
+      return (
+        <tr key={item.productID} style={{ color: "white", cursor: "pointer" }}>
+          <td>{item.productDescript}</td>
+          <td>${item.productPrice}</td>
+          <td>
+            <FontAwesomeIcon
+              icon={faTimes}
+              style={{ color: "#003268", cursor: "pointer" }}
+            />
+          </td>
+        </tr>
+      );
     });
 
     return (
@@ -53,11 +32,7 @@ export default class OrderSummary extends Component {
             </tr>
           </thead>
           <tbody>
-            {ingredientSummary}
-            <tr style={{ color: "white" }}>
-              <td>Pan Size</td>
-              <td colSpan="2">${this.props.panSizePrice}</td>
-            </tr>
+            {cartSummary}
             <tr>
               <td
                 colSpan="3"
@@ -69,7 +44,7 @@ export default class OrderSummary extends Component {
               >
                 Sub-Total
                 <span style={{ margin: "10px" }}>
-                  ${this.props.currentPrice + this.props.panSizePrice}
+                  ${this.props.totalForCart}
                 </span>
               </td>
             </tr>
@@ -79,7 +54,7 @@ export default class OrderSummary extends Component {
               <td colSpan="2">
                 <Button
                   style={{
-                    backgroundColor: "#ED1C24",
+                    backgroundColor: "#003268",
                     outline: "none",
                     border: "none"
                   }}

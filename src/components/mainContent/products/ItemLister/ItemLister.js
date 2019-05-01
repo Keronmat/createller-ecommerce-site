@@ -22,7 +22,9 @@ export default function ItemLister(props) {
           </span>
         </div>
 
-        <button onClick={() => props.cartHandler(props.id, props.price)}>
+        <button
+          onClick={() => props.cartHandler(props.id, props.price, props.face)}
+        >
           <span>
             <FontAwesomeIcon icon={faCartPlus} style={{ color: "#1776b1" }} />
           </span>

@@ -64,6 +64,7 @@ export default class Layout extends Component {
           openSignInModal={this.signInHandler}
           cartCount={this.props.cartCount}
           totalForCart={this.props.totalForCart}
+          openCheckoutHandler={this.props.openCheckoutHandler}
         />
         <SidedrawerLeft
           open={this.state.showSideDrawerLeft}
