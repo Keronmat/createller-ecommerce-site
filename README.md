@@ -40,6 +40,7 @@ This is intended only for the Creatella's use. It is done has a test project, to
 
 - Add state manager sucher as redux.
 - Add missing pages and links to complete the application (e.g:Directory link and checkout page).
+- Form validation
 - Test for bugs and fix.
 
 ## Installation
